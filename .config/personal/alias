@@ -1,0 +1,4 @@
+alias codelines='git ls-files | grep -v -e "\.lock" -e "\.json" | xargs wc -l' 
+alias mergedbranches='git branch --merged | grep -v \*'
+alias cd..=cd ..
+alias dotfiles='cd $DOTFILES'

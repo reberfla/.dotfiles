@@ -7,10 +7,18 @@ require("catppuccin").setup({
     flavour = "frappe" --, "mocha", "macchiato", "latte"
 })
 
-vim.cmd.colorscheme("catppuccin")
+function ColorMyPencils(color)
+    color = color or "catppuccin"
+    vim.cmd.colorscheme("catppuccin")
 
+--    local highlights = vim.api.nvim_get_hl(0, {})
+--    for name, _ in pairs(highlights) do
+--        vim.api.nvim_set_hl(0, name, { bg = "none"})
+--    end
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none"})
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none"})
+    vim.api.nvim_set_hl(0, "NormalNC", { bg = "none"})
+end
 -- uncomment for tokyonight theme
 -- vim.cmd[[colorscheme tokyonight]]
-
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+ColorMyPencils()

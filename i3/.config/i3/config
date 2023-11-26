@@ -9,14 +9,16 @@ font pango:OperatorMono Nerd Font 12
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i ~/picures/wallpaper.png --nofork
+bindsym Mod4+l exec --no-startup-id i3lock -i /home/reberfla/Pictures/wallpaper.png
+ 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -177,25 +179,49 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #window configuration
-default_border pixel 2
+default_border pixel 1
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #74c7ec #ffffff #ffffff #74c7ec   #74c7ec
+client.focused_inactive #b4befe #ffffff #ffffff #45475a   #45475a
+client.unfocused        #b4befe #ffffff #ffffff #ffffff   #45475a
+client.urgent           #ff5060 #ffffff #ffffff #ffffff   #2f343a
+client.placeholder      #000000 #ffffff #ffffff #ffffff   #0c0c0c
+
+gaps inner 5px
+
+#status bar configuration
+set $bg-status #31325e
 
 bar {
-        status_command i3status
+        tray_output none
+        status_command i3status | i3spotify
+        colors {
+            background  $bg-status
+            statusline  #ffffff
+            separator   $bg-status
+
+            #colorclass         border       background   text
+            focused_workspace   #a6d3a1      #a6d3a1      #1e1e2e
+            active_workspace    #89b4fa      #89b4fa      #1e1e2e
+            inactive_workspace  #181825      #181825      #cdd6f4
+            urgent_workspace    #ff5060      #ff5060      #cdd6f4
+            binding_mode        #ff5060      #ff5060      #cdd6f4
+    }
 }
 
 
 exec_always Alacritty
-assign [class="Alacritty"] 1
 
-
-exec --no-startup-id /usr/bin/thorioum-browser
+exec_always /usr/bin/thorioum-browser
 assign [class="Thorium-browser"] 2
 
 exec --no-startup-id /snap/bin/spotify
 assign [class="Spotify"] 10
 
+assign [class="discord"] 9
 
 # wallpaper and monitor settings
-exec_always feh --bg-scale $HOME/Pictures/lostik_flag_wallpaper.jpg
+exec_always feh --bg-scale $HOME/Pictures/wallpaper.jpg
 exec xrandr --output DP-1 --off
 exec_always xrandr --output DP-1 --primary --pos 1920x0 --mode 1920x1080 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal

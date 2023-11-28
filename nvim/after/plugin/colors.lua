@@ -18,6 +18,11 @@ function ColorMyPencils(color)
     vim.api.nvim_set_hl(0, "Normal", { bg = "none"})
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none"})
     vim.api.nvim_set_hl(0, "NormalNC", { bg = "none"})
+    vim.api.nvim_set_hl(0, "DiagnosticError", { bg = "none"})
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", {fg = "Red", bg = "none"})
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", {fg = "orange",bg = "none"})
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", {fg = "lightgreen",bg = "none"})
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", {fg = "cyan",bg = "none"})
 end
 -- uncomment for tokyonight theme
 -- vim.cmd[[colorscheme tokyonight]]

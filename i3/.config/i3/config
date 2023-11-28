@@ -9,7 +9,7 @@ font pango:OperatorMono Nerd Font 12
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id picom --config ~/.config/picom/picom.conf
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -120,6 +120,8 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+set $monitor-1 "DP-2"
+set $monitor-2 "HDMI-0"
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -146,9 +148,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 
 # have workspace always on specified screen
-workspace 1 output DP-1
-workspace 2 output HDMI-1
-workspace 10 output HDMI-1
+workspace 1 output $monitor-1
+workspace 2 output $monitor-2
+workspace 9 output $monitor-2
+workspace 10 output $monitor-2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -190,6 +193,12 @@ client.placeholder      #000000 #ffffff #ffffff #ffffff   #0c0c0c
 
 gaps inner 5px
 
+
+# wallpaper and monitor settings
+exec xrandr --output DP-2 --off
+exec_always xrandr --output DP-2 --primary --pos 1920x0 --mode 1920x1080 --rotate normal --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal
+exec_always feh --bg-scale $HOME/Pictures/wallpaper.jpg
+
 #status bar configuration
 set $bg-status #31325e
 
@@ -211,17 +220,12 @@ bar {
 }
 
 
-exec_always Alacritty
+exec Alacritty
 
-exec_always /usr/bin/thorioum-browser
+exec /usr/bin/thorioum-browser
 assign [class="Thorium-browser"] 2
 
 exec --no-startup-id /snap/bin/spotify
 assign [class="Spotify"] 10
 
 assign [class="discord"] 9
-
-# wallpaper and monitor settings
-exec_always feh --bg-scale $HOME/Pictures/wallpaper.jpg
-exec xrandr --output DP-1 --off
-exec_always xrandr --output DP-1 --primary --pos 1920x0 --mode 1920x1080 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal

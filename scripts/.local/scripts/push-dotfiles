@@ -19,11 +19,11 @@ function commit_and_push() {
         git commit -m "this commit was created automatically"
         git push origin $branch
         git checkout master
-        git checkout $branch install-scripts tmux nvim .gitignore personal scripts zsh
+        git checkout $branch install-scripts nvim personal scripts tmux zsh .gitignore
         git add -A
         git commit -m "automatic update due to push in other branch"
         git push origin master
-
+        git checkout $branch
 
     fi
 }

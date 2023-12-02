@@ -65,13 +65,13 @@ colors:
 
 font:
   normal:
-    family: Operator Mono Book
+    family: Jetbrains Mono
     style: Regular
 
   bold:
-    family: Operator Mono Medium
+    family: Jetbrains Mono Medium
 
   italic:
-    family: Operator Mono
+    family: Jetbrains Mono
 
   size: 13

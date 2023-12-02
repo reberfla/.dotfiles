@@ -16,8 +16,8 @@ exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i ~/picures/wallpaper.png --nofork
-bindsym Mod4+l exec --no-startup-id i3lock -i /home/reberfla/Pictures/wallpaper.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i ~/Picures/wallpaper.png --nofork
+bindsym Mod4+l exec --no-startup-id i3lock -i ~/Pictures/wallpaper.png
  
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -197,14 +197,14 @@ gaps inner 5px
 # wallpaper and monitor settings
 exec xrandr --output DP-2 --off
 exec_always xrandr --output DP-2 --primary --pos 1920x0 --mode 1920x1080 --rotate normal --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal
-exec_always feh --bg-scale $HOME/Pictures/wallpaper.jpg
+exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
 
 #status bar configuration
 set $bg-status #31325e
 
 bar {
         tray_output none
-        status_command i3status | i3spotify
+        status_command i3status
         colors {
             background  $bg-status
             statusline  #ffffff

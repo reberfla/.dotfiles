@@ -9,7 +9,7 @@
 #   https://github.com/alacritty/alacritty
 
 window:
-  opacity: 0.8
+  opacity: 0.95
   padding:
     x: 5
     y: 5
@@ -74,4 +74,4 @@ font:
   italic:
     family: Jetbrains Mono
 
-  size: 13
+  size: 11

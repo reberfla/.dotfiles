@@ -4,7 +4,11 @@
 
 -- for catppuccin:
 require("catppuccin").setup({
-    flavour = "frappe" --, "mocha", "macchiato", "latte"
+    flavour = "frappe", -- "mocha", "macchiato", "latte"
+    integrations = {
+       treesitter = false,
+       mason = false
+   }
 })
 
 function ColorMyPencils(color)

@@ -11,12 +11,16 @@ font pango:OperatorMono Nerd Font 12
 exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
+# wallpaper and monitor settings
+exec_always xrandr --output DP-2 --primary --pos 0x0 --mode 1920x1080 --rotate normal --output HDMI-0 --mode 1920x1080 --pos -1920x0 --rotate normal
+exec feh --bg-scale ~/Pictures/wallpaper.jpg
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i ~/Picures/wallpaper.png --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i --nofork
 bindsym Mod4+l exec --no-startup-id i3lock -i ~/Pictures/wallpaper.png
  
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -25,13 +29,12 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +7% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -7% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -194,10 +197,7 @@ client.placeholder      #000000 #ffffff #ffffff #ffffff   #0c0c0c
 gaps inner 5px
 
 
-# wallpaper and monitor settings
-exec xrandr --output DP-2 --off
-exec_always xrandr --output DP-2 --primary --pos 1920x0 --mode 1920x1080 --rotate normal --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal
-exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
+
 
 #status bar configuration
 set $bg-status #31325e
@@ -220,12 +220,9 @@ bar {
 }
 
 
-exec Alacritty
 
-exec /usr/bin/thorioum-browser
-assign [class="Thorium-browser"] 2
-
-exec --no-startup-id /snap/bin/spotify
+exec --no-startup-id spotify-launcher
 assign [class="Spotify"] 10
 
+exec --no-startup-id discord
 assign [class="discord"] 9

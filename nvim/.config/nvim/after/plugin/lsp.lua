@@ -16,8 +16,10 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 require('mason').setup({})
+require'lspconfig'.bufls.setup{}
+require'lspconfig'.gopls.setup{}
 require('mason-lspconfig').setup({
-  ensure_installed = {'lua_ls', 'rust_analyzer'},
+  ensure_installed = {'lua_ls', 'rust_analyzer', 'bufls', 'gopls', 'angularls', 'cssls'},
   handlers = {
     lsp.default_setup,
     lua_ls = function()
@@ -43,6 +45,13 @@ cmp.setup({
     ['<C-z>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
   }),
+})
+
+lsp.set_sign_icons({
+  error = '✘',
+  warn = '▲',
+  hint = '⚑',
+  info = '»'
 })
 
 lsp.setup()

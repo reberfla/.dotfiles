@@ -19,7 +19,7 @@ require('mason').setup({})
 require'lspconfig'.bufls.setup{}
 require'lspconfig'.gopls.setup{}
 require('mason-lspconfig').setup({
-  ensure_installed = {'lua_ls', 'rust_analyzer', 'bufls', 'gopls', 'angularls', 'cssls'},
+  ensure_installed = {'lua_ls', 'rust_analyzer', 'bufls', 'gopls', 'angularls', 'cssls', 'svelte'},
   handlers = {
     lsp.default_setup,
     lua_ls = function()
@@ -32,13 +32,15 @@ require('mason-lspconfig').setup({
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 cmp.setup({
   sources = {
     {name = 'path'},
     {name = 'nvim_lsp'},
     {name = 'nvim_lua'},
+    {name = 'luasnip'},
   },
-  formatting = lsp.cmp_format(),
   mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),

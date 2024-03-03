@@ -18,4 +18,5 @@ addToPathFront $HOME/.local/scripts
 addToPath /usr/local/go/bin
 addToPath /home/reberfla/.surrealdb
 
+eval "$(zoxide init zsh)"
 bindkey -s ^f "tmux-sessionizer\n"

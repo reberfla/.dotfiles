@@ -13,7 +13,7 @@ exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # wallpaper and monitor settings
 exec_always xrandr --output DP-2 --primary --pos 0x0 --mode 1920x1080 --rotate normal --output HDMI-0 --mode 1920x1080 --pos -1920x0 --rotate normal
-exec feh --bg-scale ~/Pictures/wallpaper.jpg
+exec feh --bg-scale ~/Pictures/wallpaper-grey.png
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.

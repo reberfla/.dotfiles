@@ -19,7 +19,7 @@ require('mason').setup({})
 require'lspconfig'.bufls.setup{}
 require'lspconfig'.gopls.setup{}
 require('mason-lspconfig').setup({
-  ensure_installed = {'lua_ls', 'rust_analyzer', 'bufls', 'gopls', 'angularls', 'cssls', 'svelte'},
+  ensure_installed = {'tsserver', 'lua_ls', 'rust_analyzer', 'bufls', 'gopls', 'cssls', 'svelte'},
   handlers = {
     lsp.default_setup,
     lua_ls = function()

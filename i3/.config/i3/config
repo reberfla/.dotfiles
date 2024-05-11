@@ -223,6 +223,3 @@ bar {
 
 exec --no-startup-id spotify-launcher
 assign [class="Spotify"] 10
-
-exec --no-startup-id discord
-assign [class="discord"] 9

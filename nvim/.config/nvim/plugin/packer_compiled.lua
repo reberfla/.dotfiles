@@ -110,6 +110,11 @@ _G.packer_plugins = {
     path = "/home/reberfla/.local/share/nvim/site/pack/packer/start/lsp_lines.nvim",
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/reberfla/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/reberfla/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",

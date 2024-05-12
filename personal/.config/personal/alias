@@ -3,3 +3,6 @@ alias mergedbranches='git branch --merged | grep -v \*'
 alias cd..=cd ..
 alias shutdown='sudo shutdown -h now'
 alias dotfiles='cd $DOTFILES'
+alias cwg="cargo watch -q -c -x 'run -q'"
+alias lg="lazygit"
+alias ld="lazydocker"

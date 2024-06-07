@@ -13,6 +13,7 @@ done
 
 export DOTFILES=$HOME/.dotfiles
 export PATH=$HOME/.local/scripts:$PATH
+export WEBKIT_DISABLE_DMABUF_RENDERER=1
 
 addToPathFront $HOME/.local/scripts
 addToPath /usr/local/go/bin

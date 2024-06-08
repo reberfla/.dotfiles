@@ -1,4 +1,5 @@
 vim.cmd [[packadd packer.nvim]]
+vim.o.termguicolors = true
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
@@ -18,7 +19,11 @@ return require('packer').startup(function(use)
   use('catppuccin/nvim', {as = 'catppuccin'})
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use "nvim-lua/plenary.nvim"
-  use('theprimeagen/harpoon')
+  use{
+      'theprimeagen/harpoon',
+      branch = 'harpoon2',
+      requires = { {"nvim-lua/plenary.nvim"} }
+  }
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
   use {
@@ -52,6 +57,22 @@ return require('packer').startup(function(use)
   use{
       'nvim-lualine/lualine.nvim',
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+  use{
+      'folke/noice.nvim',
+      requires = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' }
+  }
+  use('numToStr/Comment.nvim')
+  use('windwp/nvim-autopairs')
+  use('tpope/vim-sleuth')
+  use{
+    "rcarriga/nvim-notify",
+    config = function()
+      require("notify").setup({
+        background_colour = "#000000",
+        enabled = false,
+      })
+    end
   }
 end)
 

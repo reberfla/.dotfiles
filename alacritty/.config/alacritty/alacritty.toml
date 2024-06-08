@@ -53,13 +53,14 @@ text = "#2e3440"
 size = 11
 
 [font.bold]
-family = "Jetbrains Mono Medium"
+family = "Jetbrains Mono Nerd Font"
+style = "Bold"
 
 [font.italic]
-family = "Jetbrains Mono"
+family = "Jetbrains Mono Nerd Font"
 
 [font.normal]
-family = "Jetbrains Mono"
+family = "Jetbrains Mono Nerd Font"
 style = "Regular"
 
 [window]

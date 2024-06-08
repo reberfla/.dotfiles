@@ -7,7 +7,12 @@ require("catppuccin").setup({
     flavour = "frappe", -- "mocha", "macchiato", "latte"
     integrations = {
        treesitter = false,
-       mason = false
+       mason = false,
+       nvimtree = {
+		enabled = false,
+		show_root = false,
+		transparent_panel = false,
+	},
    }
 })
 

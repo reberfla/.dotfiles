@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
 		  {'L3MON4D3/LuaSnip'},
 	  }
   }
+  use { "L3MON4D3/LuaSnip", run = "make install_jsregexp" }
   use('saadparwaiz1/cmp_luasnip')
   use('rafamadriz/friendly-snippets')
   use({
@@ -60,19 +61,22 @@ return require('packer').startup(function(use)
   }
   use{
       'folke/noice.nvim',
-      requires = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' }
+      requires = { {'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify'} }
   }
   use('numToStr/Comment.nvim')
   use('windwp/nvim-autopairs')
   use('tpope/vim-sleuth')
+  use("rcarriga/nvim-notify")
   use{
-    "rcarriga/nvim-notify",
-    config = function()
-      require("notify").setup({
-        background_colour = "#000000",
-        enabled = false,
-      })
-    end
+    "folke/noice.nvim",
+    requires = { {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    } }
+  }
+  use{
+    "folke/trouble.nvim",
+    requires = { {"nvim-tree/nvim-web-devicons"} },
   }
 end)
 

@@ -1,8 +1,26 @@
-alias codelines='git ls-files | grep -v -e "\.lock" -e "\.json" | xargs wc -l' 
-alias mergedbranches='git branch --merged | grep -v \*'
-alias cd..=cd ..
+# System
 alias shutdown='sudo shutdown -h now'
-alias dotfiles='cd $DOTFILES'
-alias cwg="cargo watch -q -c -x 'run -q'"
+
+# VIM
+alias v="nvim"
+
+# Docker
+alias dco="docker compose"
+alias dps="docker ps"
+alias dpa="docker ps -a"
+alias dl="docker ps -l -q"
+alias dx="docker exec -it"
+
+# Dirs
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# Lazy Apps
 alias lg="lazygit"
 alias ld="lazydocker"
+
+# Cargo
+alias cwg="cargo watch -q -c -x 'run -q'"

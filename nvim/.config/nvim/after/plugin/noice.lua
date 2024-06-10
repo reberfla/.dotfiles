@@ -10,8 +10,14 @@ require("noice").setup({
             { find = '%d fewer lines' },
             { find = '%d more lines' },
           },
+        }
+      },
+      {
+        filter = {
+          event = 'lsp',
+          kind = 'progress',
         },
         opts = { skip = true },
-      }
+      },
     },
 })

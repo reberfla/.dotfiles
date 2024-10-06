@@ -1,5 +1,6 @@
 # System
 alias shutdown='sudo shutdown -h now'
+alias ll='ls -al'
 
 # VIM
 alias v="nvim"
@@ -24,3 +25,6 @@ alias ld="lazydocker"
 
 # Cargo
 alias cwg="cargo watch -q -c -x 'run -q'"
+
+# TMUX
+alias ta="tmux attach"

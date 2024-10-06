@@ -79,7 +79,12 @@ return require('packer').startup(function(use)
   -- comment marked lines
   use('numToStr/Comment.nvim')
   -- automatic closing brackets
-  use('windwp/nvim-autopairs')
+  use{'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = function()
+	require("nvim-autopairs").setup{}
+	end
+    }
   -- automatic indenting
   use('tpope/vim-sleuth')
   -- locate errors/warnings etc.

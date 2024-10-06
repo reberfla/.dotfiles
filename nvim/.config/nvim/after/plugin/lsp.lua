@@ -1,6 +1,6 @@
 local lsp = require('lsp-zero')
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -16,10 +16,8 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 require('mason').setup({})
-require'lspconfig'.bufls.setup{}
-require'lspconfig'.gopls.setup{}
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'lua_ls', 'rust_analyzer', 'bufls', 'gopls', 'cssls', 'svelte', 'dockerls', 'docker_compose_language_service'},
+  ensure_installed = {'lua_ls', 'rust_analyzer', 'cssls', 'svelte', 'dockerls', 'docker_compose_language_service'}, --'bufls', 'gopls'
   handlers = {
     lsp.default_setup,
     lua_ls = function()
@@ -28,14 +26,29 @@ require('mason-lspconfig').setup({
     end,
   }
 })
+local lspconfig = require('lspconfig')
+
+lspconfig.svelte.setup {
+  filetypes = { 'typescript', 'javascript', 'svelte', 'html', 'css'},
+}
 
 local cmp = require('cmp')
+local luasnip = require('luasnip')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
-  sources = {
+  completion = {
+    completeopt = "menuone, noinsert",
+    autocomplete = false,
+  },
+  snippet = {
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body)
+    end,
+  },
+    sources = {
     {name = 'path'},
     {name = 'nvim_lsp'},
     {name = 'nvim_lua'},
@@ -46,6 +59,13 @@ cmp.setup({
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
     ['<C-z>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
+    ['Tab'] = cmp.mapping(function(fallback)
+      if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end)
   }),
 })
 

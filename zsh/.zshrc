@@ -1,16 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/neovim/bin:/snap/bin:$PATH
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="af-magic"
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
     zsh-autosuggestions
@@ -19,7 +11,8 @@ plugins=(
     archlinux
     )
 
-source $ZSH/oh-my-zsh.sh
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+eval "$(starship init zsh)"
 
 #Load User Configuration
 source ~/.zsh_profile

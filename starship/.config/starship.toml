@@ -13,7 +13,6 @@ $ruby\
 $aws\
 $docker_context\
 $jobs\
-$cmd_duration\
 $line_break\
 $character"""
 
@@ -21,7 +20,6 @@ add_newline = true
 palette = "nord"
 
 [directory]
-style = 'bold fg:dark_blue'
 format = '[$path ]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
@@ -59,25 +57,31 @@ symbol = ' '
 [nodejs]
 style = 'blue'
 symbol = ' '
+format = '[$symbol($version )]($style)'
 
 [golang]
 style = 'blue'
 symbol = ' '
+format = '[$symbol($version )]($style)'
 
 [haskell]
 style = 'blue'
 symbol = ' '
+format = '[$symbol($version )]($style)'
 
 [rust]
 style = 'orange'
 symbol = ' '
+format = '[$symbol($version )]($style)'
 
 [ruby]
 style = 'blue'
 symbol = ' '
+format = '[$symbol($version )]($style)'
 
 [package]
 symbol = '󰏗 '
+format = '[$symbol($version )]($style)'
 
 [aws]
 symbol = ' '

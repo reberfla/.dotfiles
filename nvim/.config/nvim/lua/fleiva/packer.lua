@@ -63,11 +63,18 @@ return require('packer').startup(function(use)
 		  {'L3MON4D3/LuaSnip'},
 	  }
   }
+  use('hrsh7th/nvim-cmp')
+  use('hrsh7th/cmp-nvim-lsp')
   -- markdown preview
   use({
       "iamcco/markdown-preview.nvim",
       run = function() vim.fn["mkdp#util#install"]() end,
   })
+  -- obsidian notetaking
+  use({"epwalsh/obsidian.nvim",
+     requires = "nvim-lua/plenary.nvim"
+    })
+
 
   -- file tree
   use{
@@ -85,6 +92,17 @@ return require('packer').startup(function(use)
 	require("nvim-autopairs").setup{}
 	end
     }
+    use{'windwp/nvim-ts-autotag',
+	config = function ()
+	    require('nvim-ts-autotag').setup({
+		opts = {
+		    -- Defaults
+		    enable_close = true, -- Auto close tags
+		    enable_rename = true, -- Auto rename pairs of tags
+		    enable_close_on_slash = false -- Auto close on trailing </
+		},
+	    })
+	end}
   -- automatic indenting
   use('tpope/vim-sleuth')
   -- locate errors/warnings etc.

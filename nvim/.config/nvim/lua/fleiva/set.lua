@@ -29,4 +29,6 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
 
+vim.opt.conceallevel = 1
+
 vim.g.mapleader = " "

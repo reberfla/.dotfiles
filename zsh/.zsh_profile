@@ -14,7 +14,7 @@ done
 export DOTFILES=$HOME/.dotfiles
 export PATH=$HOME/.local/scripts:$PATH
 export WEBKIT_DISABLE_DMABUF_RENDERER=1
-export STARSHIP_CONFIG=~/.config/starship.toml
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 addToPathFront $HOME/.local/scripts
 addToPath /usr/local/go/bin

@@ -3,10 +3,10 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/neovim/bin:/snap/bin:$PATH
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
-if [[ "$OSTYPE" == 'darwin' ]]; then
+if [[ "$OSTYPE" == 'darwin'* ]]; then
     source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-elif [[ "$OSTYPE" == 'gnu-linux' ]]; then
+elif [[ "$OSTYPE" == 'linux-gnu' ]]; then
     source usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi

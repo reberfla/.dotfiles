@@ -65,6 +65,24 @@ return require('packer').startup(function(use)
   }
   use('hrsh7th/nvim-cmp')
   use('hrsh7th/cmp-nvim-lsp')
+
+  -- Debugging
+    use({'mfussenegger/nvim-dap',
+	dependencies = {
+	    'rcarriga/nvim-dap-ui',
+	    'theHamsta/nvim-dap-virtual-text',
+	    'nvim-neotest-nvim-nio',
+	    'williamboman/manson.nvim'
+	}
+    })
+    use({
+	"rcarriga/nvim-dap-ui",
+	requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}
+    })
+    use('theHamsta/nvim-dap-virtual-text')
+    use('folke/neodev.nvim')
+    use('mfussenegger/nvim-dap-python')
+    use("Mgenuit/nvim-dap-kotlin")
   -- markdown preview
   use({
       "iamcco/markdown-preview.nvim",

@@ -17,8 +17,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'lua_ls', 'rust_analyzer', 'cssls', 'svelte', 'dockerls', 'docker_compose_language_service',
-  'tailwindcss'},
+  ensure_installed = {'lua_ls', 'rust_analyzer', 'cssls', 'svelte', 'dockerls', 'docker_compose_language_service'},
   handlers = {
     lsp.default_setup,
   }

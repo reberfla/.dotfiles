@@ -36,7 +36,6 @@ lspconfig.svelte.setup({
   filetypes = { 'typescript', 'javascript', 'svelte', 'html', 'css'},
 })
 
-
 lsp.set_sign_icons({
   error = '✘',
   warn = '▲',

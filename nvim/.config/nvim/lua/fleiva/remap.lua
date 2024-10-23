@@ -13,6 +13,10 @@ vim.keymap.set("n", "<leader>z", "\"+z")
 vim.keymap.set("n", "<leader>Z", "\"+Z")
 vim.keymap.set("n", "E", "$", {noremap=false})
 
+--replac KeyMap
+vim.keymap.set("n", "gr", "gd[{V%::s/<C-R>///gc<left><left><left>")
+vim.keymap.set("n", "gR", "gD[{V%::s/<C-R>///gc<left><left><left>")
+
 -- keymaps in insert mode
 vim.keymap.set("i", "jj", "<Esc>")
 

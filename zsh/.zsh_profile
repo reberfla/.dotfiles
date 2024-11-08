@@ -19,6 +19,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 addToPathFront $HOME/.local/scripts
 addToPath /usr/local/go/bin
 addToPath /home/reberfla/.surrealdb
+addToPath /Users/flavioreber/tools/kotlin-debug-adapter/adapter/build/install/adapter/bin
 
 eval "$(zoxide init zsh)"
 bindkey -s ^f "tmux-sessionizer\n"

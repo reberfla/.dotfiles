@@ -13,9 +13,23 @@ vim.keymap.set('n', '<leader>?', function()
     require('dapui').eval(nil,{enter = true})
 end)
 
-require('dap-python').setup()
---require('dap-kotlin').setup()
+dap.adapters.kotlin = {
+    type = 'executable',
+    command = 'kotlin-debug-adapter'
+}
+dap.defaults.kotlin.auto_continue_if_many_stopped = false
 
+dap.configurations.kotlin = {
+    {
+        type = 'kotlin';
+        request = 'launch';
+        name = 'Launch kotlin program';
+        projectRoot = "${workspaceFolder}/app";
+        mainClass = "AppKt";
+    };
+}
+
+require('dap-python').setup()
 vim.keymap.set("n", "<F1>", dap.continue)
 vim.keymap.set("n", "<F2>", dap.step_into)
 vim.keymap.set("n", "<F3>", dap.step_over)

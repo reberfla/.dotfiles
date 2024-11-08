@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
   -- functional stuff
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+  use('mhartington/formatter.nvim')
   -- harpoon ofc!
   use{
       'theprimeagen/harpoon',

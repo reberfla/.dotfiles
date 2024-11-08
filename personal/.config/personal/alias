@@ -28,3 +28,7 @@ alias cwg="cargo watch -q -c -x 'run -q'"
 
 # TMUX
 alias ta="tmux attach"
+
+# Python
+alias python="python3"
+alias activate-env="source .venv/bin/activate"

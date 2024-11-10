@@ -20,6 +20,7 @@ addToPathFront $HOME/.local/scripts
 addToPath /usr/local/go/bin
 addToPath /home/reberfla/.surrealdb
 addToPath /Users/flavioreber/tools/kotlin-debug-adapter/adapter/build/install/adapter/bin
+addToPath /Users/flavioreber/tools/kotlin-language-server/server/build/install/server/bin
 
 eval "$(zoxide init zsh)"
 bindkey -s ^f "tmux-sessionizer\n"

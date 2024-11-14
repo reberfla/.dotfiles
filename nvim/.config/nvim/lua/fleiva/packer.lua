@@ -14,7 +14,14 @@ return require('packer').startup(function(use)
   -- visual stuff
 
   -- theme
-  use('catppuccin/nvim', {as = 'catppuccin'})
+  -- use('catppuccin/nvim', {as = 'catppuccin'})
+    use({
+	'rose-pine/neovim',
+	as = 'rose-pine',
+	config = function()
+	    vim.cmd('colorscheme rose-pine')
+	end
+    })
   -- expand lsp messages
   use{
       'nvim-lualine/lualine.nvim',
@@ -28,13 +35,13 @@ return require('packer').startup(function(use)
       end,
   })
   -- visuals of cmd line + notifications
-  use{
-      "folke/noice.nvim",
-      requires = { {
-	  "MunifTanjim/nui.nvim",
-	  "rcarriga/nvim-notify",
-      } }
-  }
+  -- use{
+  --     "folke/noice.nvim",
+  --     requires = { {
+  --  "MunifTanjim/nui.nvim",
+  --  "rcarriga/nvim-notify",
+  --     } }
+  -- }
 
 
   -- functional stuff
@@ -95,13 +102,13 @@ return require('packer').startup(function(use)
     })
 
 
-  -- file tree
-  use{
-    'nvim-tree/nvim-tree.lua',
-    requires ={
-        'nvim-tree/nvim-web-devicons',
-        },
-    }
+  -- -- file tree
+  -- use{
+  --   'nvim-tree/nvim-tree.lua',
+  --   requires ={
+  --       'nvim-tree/nvim-web-devicons',
+  --       },
+  --   }
   -- comment marked lines
   use('numToStr/Comment.nvim')
   -- automatic closing brackets

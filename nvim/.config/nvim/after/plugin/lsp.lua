@@ -51,10 +51,10 @@ lspconfig.svelte.setup({
 require'lspconfig'.kotlin_language_server.setup{}
 
 lsp.set_sign_icons({
-  error = '✘',
-  warn = '▲',
-  hint = '⚑',
-  info = '»'
+  error = 'E',
+  warn = 'W',
+  hint = 'H',
+  info = 'I'
 })
 
 lsp.setup()

@@ -24,5 +24,8 @@ require('obsidian').setup({
 	folder = "~/.config/obsidian/templates",
 	date_formate = "%Y-$m-%d",
 	time_format = " %H:%M"
+    },
+    ui = {
+	hl_groups = require('rose-pine.plugins.obsidian')
     }
 })

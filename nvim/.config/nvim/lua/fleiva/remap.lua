@@ -1,7 +1,5 @@
 vim.g.mapleader = " "
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 
 -- keymaps in normal mode
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

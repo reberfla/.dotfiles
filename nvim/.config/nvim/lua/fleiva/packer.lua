@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
   -- expand lsp messages
   use{
       'nvim-lualine/lualine.nvim',
-      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+      requires = { 'nvim-tree/nvim-web-devicons'}
   }
   -- bottom line of neovim
   use({
@@ -102,7 +102,13 @@ return require('packer').startup(function(use)
     })
 
 
-  -- -- file tree
+  -- -- file management
+  use({
+	"stevearc/oil.nvim",
+	dependencies = {
+	    "nvim-tree/nvim-web-devicons"
+	},
+    })
   -- use{
   --   'nvim-tree/nvim-tree.lua',
   --   requires ={

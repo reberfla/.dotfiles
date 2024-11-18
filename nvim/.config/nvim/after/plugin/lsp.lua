@@ -1,7 +1,7 @@
 local lsp = require('lsp-zero')
 
 lsp.on_attach(function(_, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+  local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -15,40 +15,39 @@ lsp.on_attach(function(_, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-require('mason').setup({})
-require('lspconfig').pylsp.setup{
-  on_attach = lsp.on_attach,
-  settings = {
-    pylsp = {
-      plugins = {
-        pyflakes = {enabled = false},
-        pylint = {enabled = false},
-        pycodestyle = {enabled = false}
-      },
-    },
-  },
-}
-require('mason-lspconfig').setup({
-  ensure_installed = {'lua_ls', 'rust_analyzer', 'cssls', 'svelte', 'dockerls', 'docker_compose_language_service'},
-  handlers = {
-    lsp.default_setup,
-  }
-})
-
 local lspconfig = require('lspconfig')
 local lsp_defaults = lspconfig.util.default_config
-
 lsp_defaults.capabilities = vim.tbl_deep_extend(
   'force',
   lsp_defaults.capabilities,
   require('cmp_nvim_lsp').default_capabilities()
 )
 
-lspconfig.svelte.setup({
-  filetypes = { 'typescript', 'javascript', 'svelte', 'html', 'css'},
+require('mason').setup({})
+require('lspconfig').pylsp.setup {
+  on_attach = lsp.on_attach,
+  settings = {
+    pylsp = {
+      plugins = {
+        pyflakes = { enabled = false },
+        pylint = { enabled = false },
+        pycodestyle = { enabled = false }
+      },
+    },
+  },
+}
+require('mason-lspconfig').setup({
+  ensure_installed = { 'lua_ls', 'rust_analyzer', 'cssls', 'svelte', 'dockerls', 'docker_compose_language_service' },
+  handlers = {
+    lsp.default_setup,
+  }
 })
 
-require'lspconfig'.kotlin_language_server.setup{}
+lspconfig.svelte.setup({
+  filetypes = { 'typescript', 'javascript', 'svelte', 'html', 'css' },
+})
+
+lspconfig.kotlin_language_server.setup({})
 
 lsp.set_sign_icons({
   error = 'E',
@@ -58,7 +57,3 @@ lsp.set_sign_icons({
 })
 
 lsp.setup()
-
-vim.diagnostic.config({
-    virtual_text = true
-})

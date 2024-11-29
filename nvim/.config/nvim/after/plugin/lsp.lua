@@ -47,7 +47,10 @@ lspconfig.svelte.setup({
   filetypes = { 'typescript', 'javascript', 'svelte', 'html', 'css' },
 })
 
-lspconfig.kotlin_language_server.setup({})
+lspconfig.kotlin_language_server.setup({
+ cmd = {'kotlin-language-server'},
+ filetypes = { 'kotlin'},
+})
 
 lsp.set_sign_icons({
   error = 'E',

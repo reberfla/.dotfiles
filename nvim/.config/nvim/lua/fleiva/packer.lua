@@ -71,6 +71,7 @@ return require('packer').startup(function(use)
 			{ 'L3MON4D3/LuaSnip' },
 		}
 	}
+	use('github/copilot.vim')
 	use('hrsh7th/nvim-cmp')
 	use('hrsh7th/cmp-nvim-lsp')
 

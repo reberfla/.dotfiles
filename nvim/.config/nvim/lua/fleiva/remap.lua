@@ -12,6 +12,8 @@ vim.keymap.set("n", "<leader>z", "\"+z")
 vim.keymap.set("n", "<leader>Z", "\"+Z")
 vim.keymap.set("n", "E", "$", { noremap = false })
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n","<C-n>", ":bn<CR>")
+vim.keymap.set("n","<C-m>", ":bn<CR>")
 
 --replac KeyMap
 vim.keymap.set("n", "gr", "gd[{V%::s/<C-R>///gc<left><left><left>")

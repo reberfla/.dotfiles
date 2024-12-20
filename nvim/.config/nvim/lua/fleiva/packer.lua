@@ -6,7 +6,6 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.4',
-		-- or                            , branch = '0.1.x',
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
 
@@ -23,39 +22,22 @@ return require('packer').startup(function(use)
 		end
 	})
 	-- expand lsp messages
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'nvim-tree/nvim-web-devicons' }
-	}
-	-- bottom line of neovim
 	use({
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		config = function()
 			require("lsp_lines").setup()
 		end,
 	})
-	-- visuals of cmd line + notifications
-	-- use{
-	--     "folke/noice.nvim",
-	--     requires = { {
-	--  "MunifTanjim/nui.nvim",
-	--  "rcarriga/nvim-notify",
-	--     } }
-	-- }
-
 
 	-- functional stuff
 
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-	use('mhartington/formatter.nvim')
 	-- harpoon ofc!
 	use {
 		'theprimeagen/harpoon',
 		branch = 'harpoon2',
 		requires = { { "nvim-lua/plenary.nvim" } }
 	}
-	-- history of files
-	use('mbbill/undotree')
 	-- LSP
 	use {
 		'VonHeikemen/lsp-zero.nvim',
@@ -103,7 +85,6 @@ return require('packer').startup(function(use)
 		"epwalsh/obsidian.nvim",
 		requires = "nvim-lua/plenary.nvim"
 	})
-
 
 	-- -- file management
 	use({

@@ -27,5 +27,9 @@ require('obsidian').setup({
 	},
 	ui = {
 		hl_groups = require('rose-pine.plugins.obsidian')
-	}
+	},
+	follow_url_func = function(url)
+		vim.ui.open(url)
+	end,
+
 })

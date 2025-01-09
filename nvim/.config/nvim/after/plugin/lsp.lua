@@ -24,7 +24,7 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
 )
 
 require('mason').setup({})
-require('lspconfig').pylsp.setup {
+lspconfig.pylsp.setup {
   on_attach = lsp.on_attach,
   settings = {
     pylsp = {

@@ -15,25 +15,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
-if [[ "$OSTYPE" == 'darwin'* ]]; then
-    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-elif [[ "$OSTYPE" == 'linux-gnu' ]]; then
-    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
-
 export DOTFILES=$HOME/.dotfiles
-export PATH=$HOME/.local/scripts:$PATH
 export WEBKIT_DISABLE_DMABUF_RENDERER=1
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-eval "$(starship init zsh)"
 
 addToPathFront $HOME/.local/scripts
 addToPathFront $HOME/bin
@@ -47,6 +35,15 @@ addToPath $HOME/tools/kotlin-debug-adapter/adapter/build/install/adapter/bin
 addToPath $HOME/tools/kotlin-language-server/server/build/install/server/bin
 addToPath /opt/homebrew/bin
 addToPath /opt/homebrew/opt/node@20/bin
+
+if [[ "$OSTYPE" == 'darwin'* ]]; then
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif [[ "$OSTYPE" == 'linux-gnu' ]]; then
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+eval "$(starship init zsh)"
 
 eval "$(zoxide init zsh)"
 bindkey -s ^f "tmux-sessionizer\n"

@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- keymaps in normal mode
@@ -15,7 +16,7 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n","<C-n>", ":bn<CR>")
 vim.keymap.set("n","<C-m>", ":bn<CR>")
 
---replac KeyMap
+--replace KeyMap
 vim.keymap.set("n", "gr", "gd[{V%::s/<C-R>///gc<left><left><left>")
 vim.keymap.set("n", "gR", "gD[{V%::s/<C-R>///gc<left><left><left>")
 
@@ -36,5 +37,3 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("n", "<leader>qq", ":q<CR>",
   { silent = true, noremap = true }
 )
--- Noice
-vim.keymap.set("n", "<leader>nn", "<cmd>Noice dismiss<cr>", { noremap = true })

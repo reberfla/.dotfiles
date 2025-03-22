@@ -60,4 +60,10 @@ map <leader>sf <Action>(FindInPath)
 map <leader>o <Action>(FileStructurePopup)
 map <S-Space> <Action>(GotoNextError)
 
-map U <C-R>
+nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
+xmap <leader>r <Action>(Refactorings.QuickListPopupAction)
+
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+
+nmap U <C-R>

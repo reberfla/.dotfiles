@@ -22,12 +22,12 @@ return require('packer').startup(function(use)
 		end
 	})
 	-- expand lsp messages
-	use({
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		config = function()
-			require("lsp_lines").setup()
-		end,
-	})
+	-- use({
+	-- 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	-- 	config = function()
+	-- 		require("lsp_lines").setup()
+	-- 	end,
+	-- })
 
 	-- functional stuff
 
@@ -52,6 +52,14 @@ return require('packer').startup(function(use)
 			{ 'hrsh7th/cmp-nvim-lsp' },
 			{ 'L3MON4D3/LuaSnip' },
 		}
+	}
+	use {
+		"scalameta/nvim-metals",
+		requires = { "nvim-lua/plenary.nvim" },
+		{
+	       "j-hui/fidget.nvim",
+	       opts = {},
+	     }
 	}
 	use('github/copilot.vim')
 	use('hrsh7th/nvim-cmp')

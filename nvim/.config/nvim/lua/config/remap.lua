@@ -37,3 +37,4 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("n", "<leader>qq", ":q<CR>",
   { silent = true, noremap = true }
 )
+vim.keymap.set("n", "<leader>t", "<CMD>Oil<CR>")

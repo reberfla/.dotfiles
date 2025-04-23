@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-STOW_FOLDERS="wezterm,nvim,personal,scripts,tmux,zsh,starship,nix"
+STOW_FOLDERS="wezterm,nvim,personal,scripts,tmux,zsh,starship"
+NIX_FOLDER="/etc/nix-darwin"
 pushd $DOTFILES
 
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
@@ -9,4 +10,10 @@ do
 	stow -D $folder
 	stow -t ~ $folder
 done
+
+echo "stow nix"
+sudo mkdir -p /etc/nix-darwin
+sudo chown $(id -nu):$(id -ng) /etc/nix-darwin
+stow -D nix
+stow -t $NIX_FOLDER nix
 

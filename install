@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-STOW_FOLDERS="wezterm,nvim,personal,scripts,tmux,zsh,starship"
+STOW_FOLDERS="wezterm,nvim,personal,scripts,tmux,zsh,starship,nix"
 pushd $DOTFILES
 
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")

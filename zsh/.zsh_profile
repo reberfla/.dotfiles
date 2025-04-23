@@ -47,4 +47,4 @@ fi
 eval "$(starship init zsh)"
 
 eval "$(zoxide init zsh)"
-bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^p "tmux-sessionizer\n"

@@ -36,5 +36,17 @@ return {
             capabilities = capabilities
         })
         vim.lsp.enable('rust_analyzer')
+        vim.lsp.config('nil', {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            cmd = { 'nil' },
+            settings = {
+                ['nil']= {
+                    filetypes = { 'nix' },
+                    root_markers = { 'flake.nix', '.git' },
+                }
+            }
+        })
+        vim.lsp.enable('nil')
     end
 }

@@ -1,3 +1,4 @@
+# Arch Linux Start Windowmanager
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
 fi
@@ -34,7 +35,6 @@ addToPath $HOME/.surrealdb
 addToPath $HOME/tools/kotlin-debug-adapter/adapter/build/install/adapter/bin
 addToPath $HOME/tools/kotlin-language-server/server/build/install/server/bin
 addToPath /opt/homebrew/bin
-addToPath /opt/homebrew/opt/node@20/bin
 export PATH="$PATH:/Users/flavioreber/Library/Application Support/Coursier/bin"
 
 if [[ "$OSTYPE" == 'darwin'* ]]; then
@@ -44,7 +44,8 @@ elif [[ "$OSTYPE" == 'linux-gnu' ]]; then
     source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-eval "$(starship init zsh)"
 
+eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
 bindkey -s ^p "tmux-sessionizer\n"

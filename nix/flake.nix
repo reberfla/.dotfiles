@@ -22,7 +22,7 @@
           pkgs.lazygit
           pkgs.lima
           pkgs.nmap
-          pkgs.neovim
+          # pkgs.neovim
           pkgs.nodejs_23
           pkgs.pandoc
           pkgs.qemu
@@ -70,10 +70,12 @@
           brews = [
             "zsh-autosuggestions"
             "zsh-syntax-highlighting"
+            "neovim"
           ];
           casks = [
               "1password"
               "dbeaver-community"
+              "intellij-idea"
               "google-chrome"
               "postman"
               "wezterm"

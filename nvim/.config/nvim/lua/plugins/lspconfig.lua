@@ -12,7 +12,17 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
     vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+
+    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+        opts = opts or {}
+        opts.border = opts.border or 'rounded'
+
+        return orig_util_open_floating_preview(contents, syntax, opts, ...)
+    end
 end
+
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 

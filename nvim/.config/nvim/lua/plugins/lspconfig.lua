@@ -40,12 +40,8 @@ return {
             on_attach = on_attach,
             capabilities = capabilities,
             cmd = { 'nil' },
-            settings = {
-                ['nil']= {
-                    filetypes = { 'nix' },
-                    root_markers = { 'flake.nix'},
-                }
-            }
+            filetypes = { 'nix' },
+            root_markers = { 'flake.nix' },
         })
         vim.lsp.enable('nil')
     end

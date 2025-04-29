@@ -79,6 +79,7 @@
               "wezterm"
               "obsidian"
               "docker"
+              "spotify"
             ];
           taps = [
               "sdkman/tap"

@@ -31,6 +31,7 @@ if [ ! -d "$NIX_FOLDER" ]; then
 		sudo mkdir -p $NIX_FOLDER
 		sudo chown $(id -nu):$(id -ng) /etc/nix-darwin
 		cd /etc/nix-darwin
+		sed -i '' "s/simple/$(scutil --get LocalHostName)/" flake.nix
 	fi
 fi
 

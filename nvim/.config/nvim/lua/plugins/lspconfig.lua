@@ -54,5 +54,6 @@ return {
             root_markers = { 'flake.nix' },
         })
         vim.lsp.enable('nil')
+        vim.lsp.enable('marksman')
     end
 }

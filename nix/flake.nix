@@ -25,6 +25,7 @@
           # pkgs.neovim
           pkgs.nodejs_23
           pkgs.pandoc
+          pkgs.pngpaste
           pkgs.qemu
           pkgs.ripgrep
           pkgs.starship
@@ -47,6 +48,16 @@
 
       # MacOs System Settings
       system.defaults = {
+        NSGlobalDomain = {
+          AppleInterfaceStyle = "Dark";
+          AppleShowScrollBars = "Always";
+          AppleScrollerPagingBehavior = true;
+          NSAutomaticWindowAnimationsEnabled = false;
+          "com.apple.mouse.tapBehavior" = 1;
+          AppleMeasurementUnits = "Centimeters";
+          AppleMetricUnits = 1;
+          AppleTemperatureUnit = "Celsius";
+        };
         dock = {
           autohide = true;
           mru-spaces = false;
@@ -57,8 +68,8 @@
           AppleShowAllExtensions = true;
           ShowPathbar = true;
           FXPreferredViewStyle = "clmv";
-          };
-        screencapture.location = "~/Pictures/screenshots";
+        };
+        screencapture.target = "clipboard";
         screensaver.askForPasswordDelay = 10;
       };
 
@@ -80,6 +91,7 @@
               "obsidian"
               "docker"
               "spotify"
+              "basictex"
             ];
           taps = [
               "sdkman/tap"

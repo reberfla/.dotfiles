@@ -32,5 +32,4 @@ alias ta="tmux attach"
 
 # Python
 alias python="python3"
-alias activate-env="source .venv/bin/activate"
 alias ae="source .venv/bin/activate"

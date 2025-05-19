@@ -35,6 +35,7 @@ addToPath $HOME/.surrealdb
 addToPath $HOME/tools/kotlin-debug-adapter/adapter/build/install/adapter/bin
 addToPath $HOME/tools/kotlin-language-server/server/build/install/server/bin
 addToPath /opt/homebrew/bin
+addToPath $HOME/Library/Python/3.9/bin
 export PATH="$PATH:/Users/flavioreber/Library/Application Support/Coursier/bin"
 
 if [[ "$OSTYPE" == 'darwin'* ]]; then

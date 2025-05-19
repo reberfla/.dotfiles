@@ -3,6 +3,7 @@ $directory\
 $git_branch\
 $git_status\
 $fill\
+$scala\
 $python\
 $lua\
 $nodejs\
@@ -94,6 +95,13 @@ style = 'fg:#06969A'
 format = '[$symbol]($style) $path'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 detect_extensions = ['Dockerfile']
+
+[scala]
+symbol = ' '
+style = 'fg:#06969A'
+format = '[$symbol]($style) $path'
+detect_files = [' build.sbt']
+detect_extensions = ['*.scala']
 
 [jobs]
 symbol = ' '

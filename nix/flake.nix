@@ -13,16 +13,13 @@
       # List packages installed in system profile.
       environment.systemPackages =
         [ pkgs.vim
-          pkgs.coursier
           pkgs.fzf
-          pkgs.gradle
           pkgs.graphviz
           pkgs.jq
           pkgs.lazydocker
           pkgs.lazygit
           pkgs.lima
           pkgs.nmap
-          # pkgs.neovim
           pkgs.nodejs_23
           pkgs.pandoc
           pkgs.pngpaste
@@ -34,8 +31,6 @@
           pkgs.tree
           pkgs.zoxide
           pkgs.zsh
-          # pkgs.zsh-autosuggestions
-          # pkgs.zsh-syntax-highlighting
           pkgs.xh
         ];
 
@@ -57,12 +52,14 @@
           AppleMeasurementUnits = "Centimeters";
           AppleMetricUnits = 1;
           AppleTemperatureUnit = "Celsius";
+          AppleShowAllFiles = true;
         };
         dock = {
-          autohide = true;
+          autohide = false;
           mru-spaces = false;
           show-recents = false;
           static-only = true;
+          tilesize = 32;
         };
         finder = {
           AppleShowAllExtensions = true;
@@ -72,6 +69,10 @@
         screencapture.target = "clipboard";
         screensaver.askForPasswordDelay = 10;
       };
+      system.keyboard = {
+          enableKeyMapping = true;
+          swapLeftCommandAndLeftAlt = false;
+        };
 
       # Homebrew Casks and Taps
       homebrew = {
@@ -80,6 +81,7 @@
             "zsh-autosuggestions"
             "zsh-syntax-highlighting"
             "neovim"
+            "sdkman/tap/sdkman-cli"
           ];
           casks = [
               "1password"
@@ -91,6 +93,7 @@
               "obsidian"
               "docker"
               "spotify"
+              "slack"
               "basictex"
             ];
           taps = [
@@ -103,6 +106,10 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#MacbookPro-2
     darwinConfigurations."Flavio-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      modules = [ configuration ];
+    };
+    darwinConfigurations."DTCHZURIB302232" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [ configuration ];
     };

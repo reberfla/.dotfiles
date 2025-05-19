@@ -55,5 +55,29 @@ return {
         })
         vim.lsp.enable('nil')
         vim.lsp.enable('marksman')
+        vim.lsp.config('pylsp', {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = {
+                pylsp = {
+                    plugins = {
+                        pyflakes = { enabled = false },
+                        pylint = { enabled = false },
+                        pycodestyle = { enabled = false }
+                    }
+                }
+            }
+        })
+        vim.lsp.enable('pylsp')
+        vim.lsp.config('gitlab_ci_ls', {
+            on_attach = on_attach,
+            capabilities = capabilities
+        })
+        vim.lsp.enable('gitlab_ci_ls')
+        vim.lsp.config('docker_compose_language_service', {
+            on_attach = on_attach,
+            capabilities = capabilities
+        })
+        vim.lsp.enable('docker_compose_language_service')
     end
 }

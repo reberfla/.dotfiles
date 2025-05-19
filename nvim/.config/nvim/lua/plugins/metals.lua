@@ -12,6 +12,15 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
     vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+
+    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+        opts = opts or {}
+        opts.border = opts.border or 'rounded'
+
+        return orig_util_open_floating_preview(contents, syntax, opts, ...)
+    end
 end
 
 return {
@@ -23,6 +32,9 @@ return {
     opts = function()
         local metals_config = require("metals").bare_config()
         metals_config.on_attach = on_attach
+        metals_config.settings = {
+            javaHome = "~/.sdkman/java/candidates/11.0.27-amzn"
+        }
         return metals_config
     end,
     config = function(self, metals_config)

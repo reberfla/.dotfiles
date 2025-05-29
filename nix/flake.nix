@@ -20,7 +20,7 @@
           pkgs.lazygit
           pkgs.lima
           pkgs.nmap
-          pkgs.nodejs_23
+          pkgs.nodejs_22
           pkgs.pandoc
           pkgs.pngpaste
           pkgs.qemu
@@ -103,8 +103,6 @@
     };
   in
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#MacbookPro-2
     darwinConfigurations."Flavio-MacBook-Pro" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [ configuration ];

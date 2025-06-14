@@ -91,5 +91,25 @@ return {
             }
         })
         vim.lsp.enable('kotlin_language_server')
+        vim.lsp.config("vue_ls", {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            filetypes = {"typescript", "javascript", "javascriptreact", "typescriptreact", "vue"},
+            init_options = {
+                typescript = {
+                    tsdk = vim.fn.expand("$HOME/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib")
+                },
+                vue = {
+                    hybridMode = false,
+                }
+            },
+            before_init = function(params, config)
+                local lib_path = vim.fs.find("node_modules/typescript/lib", { path = new_root_dir, upward = true })[1]
+                if lib_path then
+                    config.init_options.typescript.tsdk = lib_path
+                end
+            end,
+        })
+        vim.lsp.enable("vue_ls")
     end
 }

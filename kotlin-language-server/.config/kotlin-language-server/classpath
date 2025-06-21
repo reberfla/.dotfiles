@@ -1,7 +1,0 @@
-#!/bin/sh
-
-KOTLIN_DIR=$(where kotlinc)
-CACHE_DIR="$HOME/.m2/repository"
-kotlin_std_lib_files=$(find "$KOTLIN_DIR" -type f| grep .jar | grep -v sha | tr '\n' ':')
-cache_files=$(find "$CACHE_DIR" -type f| grep .jar | tr '\n' ':')
-echo "${kotlin_std_lib_files}:${jar_files::-1}"

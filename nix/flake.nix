@@ -29,6 +29,7 @@
           pkgs.stow
           pkgs.tmux
           pkgs.tree
+          pkgs.uv
           pkgs.zoxide
           pkgs.zsh
           pkgs.xh

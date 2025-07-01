@@ -59,6 +59,7 @@ map <leader>c <Action>(Stop)
 map <leader>sf <Action>(FindInPath)
 map <leader>o <Action>(FileStructurePopup)
 map <S-Space> <Action>(GotoNextError)
+nmap gr <Action>(FindUsages)
 
 nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
 xmap <leader>r <Action>(Refactorings.QuickListPopupAction)

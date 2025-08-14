@@ -13,6 +13,7 @@
       # List packages installed in system profile.
       environment.systemPackages =
         [ pkgs.vim
+          pkgs.azure-cli
           pkgs.fzf
           pkgs.graphviz
           pkgs.jq

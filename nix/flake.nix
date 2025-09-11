@@ -38,11 +38,11 @@
         ];
     commonCasks = [
         "intellij-idea"
+        "docker-desktop"
         "google-chrome"
         "postman"
         "wezterm"
         "obsidian"
-        "docker"
         "spotify"
       ];
 

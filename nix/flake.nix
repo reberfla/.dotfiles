@@ -18,8 +18,10 @@
         pkgs.nmap
         pkgs.pngpaste
         pkgs.ripgrep
+        pkgs.rustup
         pkgs.starship
         pkgs.stow
+        pkgs.tldr
         pkgs.tmux
         pkgs.tree
         pkgs.uv
@@ -59,6 +61,11 @@
       environment.systemPackages = commonPackages pkgs;
       homebrew = {
         enable = true;
+        onActivation = {
+            autoUpdate = true;
+            cleanup = "uninstall";
+            upgrade = true;
+          };
         brews = commonBrews;
         taps = commonTaps;
         casks = commonCasks;

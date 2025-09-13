@@ -39,7 +39,6 @@
     commonCasks = [
         "intellij-idea"
         "docker-desktop"
-        "google-chrome"
         "postman"
         "wezterm"
         "obsidian"
@@ -130,6 +129,7 @@
                 "basictex"
                 "dotnet-sdk"
                 "nikitabobko/tap/aerospace"
+                "arc"
               ];
             homebrew.taps = [
               "nikitabobko/tap"
@@ -148,6 +148,7 @@
               pkgs.awscli2
             ];
             homebrew.casks = [
+                "google-chrome"
                 "slack"
               ];
       })];

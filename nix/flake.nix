@@ -83,13 +83,13 @@
           AppleMetricUnits = 1;
           AppleTemperatureUnit = "Celsius";
           AppleShowAllFiles = true;
+          NSWindowShouldDragOnGesture = true;
         };
         dock = {
-          autohide = false;
+          tilesize = 32;
           mru-spaces = false;
           show-recents = false;
           static-only = true;
-          tilesize = 32;
         };
         finder = {
           AppleShowAllExtensions = true;
@@ -111,6 +111,10 @@
       modules = [ 
         commonDarwinModule
         ({ pkgs, ... }: {
+            system.defaults.dock = {
+            autohide = true;
+            autohide-delay = 1000.0;
+            };
             environment.systemPackages = [
               pkgs.azure-cli
               pkgs.lima
@@ -125,7 +129,11 @@
                 "obsidian"
                 "basictex"
                 "dotnet-sdk"
+                "nikitabobko/tap/aerospace"
               ];
+            homebrew.taps = [
+              "nikitabobko/tap"
+            ];
           })];
     };
     darwinConfigurations."DTCHZURIB302232" = nix-darwin.lib.darwinSystem {
@@ -133,6 +141,9 @@
       modules = [ 
         commonDarwinModule
         ({ pkgs, ...}: {
+            system.defaults.dock = {
+            autohide = false;
+            };
             environment.systemPackages = [
               pkgs.awscli2
             ];

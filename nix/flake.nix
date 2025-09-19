@@ -43,10 +43,12 @@
         "wezterm"
         "obsidian"
         "spotify"
+        "arc"
+        "nikitabobko/tap/aerospace"
       ];
-
     commonTaps = [
         "sdkman/tap"
+        "nikitabobko/tap"
       ];
 
     commonDarwinModule = { pkgs, ... }: {
@@ -85,6 +87,8 @@
           NSWindowShouldDragOnGesture = true;
         };
         dock = {
+          autohide = true;
+          autohide-delay = 1000.0;
           tilesize = 32;
           mru-spaces = false;
           show-recents = false;
@@ -110,10 +114,6 @@
       modules = [ 
         commonDarwinModule
         ({ pkgs, ... }: {
-            system.defaults.dock = {
-            autohide = true;
-            autohide-delay = 1000.0;
-            };
             environment.systemPackages = [
               pkgs.azure-cli
               pkgs.lima
@@ -128,12 +128,7 @@
                 "obsidian"
                 "basictex"
                 "dotnet-sdk"
-                "nikitabobko/tap/aerospace"
-                "arc"
               ];
-            homebrew.taps = [
-              "nikitabobko/tap"
-            ];
           })];
     };
     darwinConfigurations."DTCHZURIB302232" = nix-darwin.lib.darwinSystem {
@@ -141,14 +136,10 @@
       modules = [ 
         commonDarwinModule
         ({ pkgs, ...}: {
-            system.defaults.dock = {
-            autohide = false;
-            };
             environment.systemPackages = [
               pkgs.awscli2
             ];
             homebrew.casks = [
-                "google-chrome"
                 "slack"
               ];
       })];

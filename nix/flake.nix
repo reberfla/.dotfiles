@@ -141,6 +141,7 @@
             ];
             homebrew.casks = [
                 "slack"
+                "google-chrome"
               ];
       })];
     };

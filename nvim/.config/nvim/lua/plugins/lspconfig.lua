@@ -111,5 +111,11 @@ return {
             end,
         })
         vim.lsp.enable("vue_ls")
+        vim.lsp.config("omnisharp", {
+            on_attach = on_attach,
+            capabilities = capabilities
+        })
+        vim.lsp.enable("omnisharp")
+
     end
 }

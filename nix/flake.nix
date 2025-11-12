@@ -43,8 +43,9 @@
         "wezterm"
         "obsidian"
         "spotify"
-        "arc"
         "nikitabobko/tap/aerospace"
+        "google-chrome"
+        "dbvisualizer"
       ];
     commonTaps = [
         "sdkman/tap"
@@ -118,17 +119,18 @@
               pkgs.azure-cli
               pkgs.lima
               pkgs.nmap
-              pkgs.nodejs_22
               pkgs.pandoc
               pkgs.qemu
             ];
             homebrew.casks = [
                 "1password"
-                "dbeaver-community"
                 "obsidian"
                 "basictex"
                 "dotnet-sdk"
               ];
+            homebrew.brews = [
+              "node@22"
+            ];
           })];
     };
     darwinConfigurations."DTCHZURIB302232" = nix-darwin.lib.darwinSystem {
@@ -141,7 +143,6 @@
             ];
             homebrew.casks = [
                 "slack"
-                "google-chrome"
               ];
       })];
     };

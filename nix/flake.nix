@@ -126,7 +126,7 @@
                 "1password"
                 "obsidian"
                 "basictex"
-                "dotnet-sdk"
+                "dotnet-sdk@9"
               ];
             homebrew.brews = [
               "node@22"

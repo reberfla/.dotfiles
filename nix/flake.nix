@@ -2,8 +2,8 @@
   description = "My MacOs config flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
-    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -58,7 +58,6 @@
       system.configurationRevision = self.rev or self.dirtyRev or null;
       system.stateVersion = 5;
       nixpkgs.hostPlatform = "aarch64-darwin";
-      security.pam.enableSudoTouchIdAuth = true;
 
       environment.systemPackages = commonPackages pkgs;
       homebrew = {
@@ -115,18 +114,18 @@
       modules = [ 
         commonDarwinModule
         ({ pkgs, ... }: {
+            system.primaryUser="flavioreber";
             environment.systemPackages = [
               pkgs.azure-cli
-              pkgs.lima
               pkgs.nmap
               pkgs.pandoc
               pkgs.qemu
+              pkgs.dotnet-sdk_9
             ];
             homebrew.casks = [
                 "1password"
                 "obsidian"
                 "basictex"
-                "dotnet-sdk@9"
               ];
             homebrew.brews = [
               "node@22"
@@ -138,6 +137,7 @@
       modules = [ 
         commonDarwinModule
         ({ pkgs, ...}: {
+            system.primaryUser="c565273";
             environment.systemPackages = [
               pkgs.awscli2
             ];

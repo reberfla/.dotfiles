@@ -34,6 +34,7 @@
           "zsh-autosuggestions"
           "zsh-syntax-highlighting"
           "neovim"
+          "docker"
           "sdkman/tap/sdkman-cli"
         ];
     commonCasks = [
@@ -45,7 +46,6 @@
         "spotify"
         "nikitabobko/tap/aerospace"
         "google-chrome"
-        "dbvisualizer"
       ];
     commonTaps = [
         "sdkman/tap"
@@ -140,6 +140,10 @@
             system.primaryUser="c565273";
             environment.systemPackages = [
               pkgs.awscli2
+              pkgs.grype
+              pkgs.neo4j
+              pkgs.tenv
+              pkgs.kubernetes-helm
             ];
             homebrew.casks = [
                 "slack"

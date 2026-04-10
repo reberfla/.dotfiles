@@ -17,7 +17,7 @@ vim.keymap.set("n","<C-n>", ":bn<CR>")
 vim.keymap.set("n","<C-m>", ":bn<CR>")
 
 --replace KeyMap
-vim.keymap.set("n", "gr", "gd[{V%::s/<C-R>///gc<left><left><left>")
+-- vim.keymap.set("n", "gr", "gd[{V%::s/<C-R>///gc<left><left><left>")
 vim.keymap.set("n", "gR", "gD[{V%::s/<C-R>///gc<left><left><left>")
 
 -- keymaps in insert mode

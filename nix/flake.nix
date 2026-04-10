@@ -2,8 +2,8 @@
   description = "My MacOs config flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
-    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -36,6 +36,7 @@
           "neovim"
           "docker"
           "sdkman/tap/sdkman-cli"
+          "node@22"
         ];
     commonCasks = [
         "intellij-idea"
@@ -127,9 +128,6 @@
                 "obsidian"
                 "basictex"
               ];
-            homebrew.brews = [
-              "node@22"
-            ];
           })];
     };
     darwinConfigurations."DTCHZURIB302232" = nix-darwin.lib.darwinSystem {

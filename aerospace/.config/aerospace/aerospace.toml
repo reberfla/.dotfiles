@@ -142,5 +142,17 @@ automatically-unhide-macos-hidden-apps = true
     run = 'move-node-to-workspace T'
 
 [[on-window-detected]]
+    if.app-id = 'com.microsoft.outlook'
+    run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
+    if.app-id = 'com.spotify.client'
+    run = 'move-node-to-workspace S'
+
+[[on-window-detected]]
+    if.app-id = 'com.postmanlabs.mac'
+    run = 'move-node-to-workspace E'
+
+[[on-window-detected]]
     if.app-id = 'com.apple.finder'
     run = 'layout floating'

@@ -7,7 +7,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<leader>vws", builtin.lsp_workspace_symbols, opts)
     vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "[d", vim.diagnostic.jump, opts)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "gr", builtin.lsp_references, opts)
@@ -71,11 +71,6 @@ return {
             }
         })
         vim.lsp.enable('pylsp')
-        vim.lsp.config('gitlab_ci_ls', {
-            on_attach = on_attach,
-            capabilities = capabilities
-        })
-        vim.lsp.enable('gitlab_ci_ls')
         vim.lsp.config('docker_compose_language_service', {
             on_attach = on_attach,
             capabilities = capabilities
@@ -103,7 +98,7 @@ return {
                     hybridMode = false,
                 }
             },
-            before_init = function(params, config)
+            before_init = function(_, config)
                 local lib_path = vim.fs.find("node_modules/typescript/lib", { path = new_root_dir, upward = true })[1]
                 if lib_path then
                     config.init_options.typescript.tsdk = lib_path
@@ -111,11 +106,11 @@ return {
             end,
         })
         vim.lsp.enable("vue_ls")
-        vim.lsp.config("omnisharp", {
+        vim.lsp.config("roslyn_ls", {
             on_attach = on_attach,
-            capabilities = capabilities
+            capabilities = capabilities,
         })
-        vim.lsp.enable("omnisharp")
+        vim.lsp.enable("roslyn_ls")
 
     end
 }

@@ -8,15 +8,21 @@
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs }:
+
   let
-      commonPackages = pkgs: [
+    configuration = { pkgs, ... }: {
+        environment.systemPackages = [
+        pkgs.azure-cli
+        pkgs.dotnet-sdk_10
         pkgs.fzf
         pkgs.graphviz
         pkgs.jq
         pkgs.lazydocker
         pkgs.lazygit
         pkgs.nmap
+        pkgs.pandoc
         pkgs.pngpaste
+        pkgs.qemu
         pkgs.ripgrep
         pkgs.rustup
         pkgs.starship
@@ -30,48 +36,13 @@
         pkgs.xh
       ];
 
-    commonBrews = [
-          "zsh-autosuggestions"
-          "zsh-syntax-highlighting"
-          "neovim"
-          "docker"
-          "sdkman/tap/sdkman-cli"
-          "node@22"
-        ];
-    commonCasks = [
-        "intellij-idea"
-        "docker-desktop"
-        "postman"
-        "wezterm"
-        "obsidian"
-        "spotify"
-        "nikitabobko/tap/aerospace"
-        "google-chrome"
-      ];
-    commonTaps = [
-        "sdkman/tap"
-        "nikitabobko/tap"
-      ];
-
-    commonDarwinModule = { pkgs, ... }: {
       nix.settings.experimental-features = "nix-command flakes";
       programs.zsh.enable = true;
+      system.primaryUser="flavioreber";
       system.configurationRevision = self.rev or self.dirtyRev or null;
       system.stateVersion = 5;
       nixpkgs.hostPlatform = "aarch64-darwin";
 
-      environment.systemPackages = commonPackages pkgs;
-      homebrew = {
-        enable = true;
-        onActivation = {
-            autoUpdate = true;
-            cleanup = "uninstall";
-            upgrade = true;
-          };
-        brews = commonBrews;
-        taps = commonTaps;
-        casks = commonCasks;
-      };
 
       # MacOs System Settings
       system.defaults = {
@@ -107,47 +78,46 @@
           enableKeyMapping = true;
           swapLeftCommandAndLeftAlt = false;
         };
+      homebrew = {
+        enable = true;
+        onActivation = {
+          autoUpdate = true;
+          cleanup = "uninstall";
+          upgrade = true;
+        };
+        brews = [
+          "zsh-autosuggestions"
+          "zsh-syntax-highlighting"
+          "neovim"
+          "docker"
+          "sdkman/tap/sdkman-cli"
+          "node"
+        ];
+        casks = [
+          "intellij-idea"
+          "docker-desktop"
+          "postman"
+          "wezterm"
+          "obsidian"
+          "spotify"
+          "nikitabobko/tap/aerospace"
+          "google-chrome"
+          "1password"
+          "obsidian"
+          "basictex"
+          "proton-pass"
+        ];
+        taps = [
+          "sdkman/tap"
+          "nikitabobko/tap"
+        ];
+      };
     };
   in
   {
     darwinConfigurations."Flavio-MacBook-Pro" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-      modules = [ 
-        commonDarwinModule
-        ({ pkgs, ... }: {
-            system.primaryUser="flavioreber";
-            environment.systemPackages = [
-              pkgs.azure-cli
-              pkgs.nmap
-              pkgs.pandoc
-              pkgs.qemu
-              pkgs.dotnet-sdk_9
-            ];
-            homebrew.casks = [
-                "1password"
-                "obsidian"
-                "basictex"
-                "proton-pass"
-              ];
-          })];
-    };
-    darwinConfigurations."DTCHZURIB302232" = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules = [ 
-        commonDarwinModule
-        ({ pkgs, ...}: {
-            system.primaryUser="c565273";
-            environment.systemPackages = [
-              pkgs.awscli2
-              pkgs.grype
-              pkgs.neo4j
-              pkgs.tenv
-              pkgs.kubernetes-helm
-            ];
-            homebrew.casks = [
-                "slack"
-              ];
-      })];
-    };
+      modules = [ configuration ];
+      };
   };
 }

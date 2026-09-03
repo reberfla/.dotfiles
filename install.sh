@@ -23,17 +23,9 @@ done
 echo "stow nix"
 if [ ! -d "$NIX_FOLDER" ]; then
   echo "$NIX_FOLDER does not exist, assuming nix is not installed..."
-  read -p "Do you want to install Nix ? [y/n]" -n 1 -r
-	if [[ $REPLY =~ ^[Yy]$ ]]
-	then
-		echo -e "Installing Nix, please select NO to using Determinate!!"
-		curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-		sudo mkdir -p $NIX_FOLDER
-		sudo chown $(id -nu):$(id -ng) /etc/nix-darwin
-		cd /etc/nix-darwin
-	fi
+  echo "Please install nix first and perform the initial setup."
 fi
 
 stow -D nix
 stow -t $NIX_FOLDER nix
-darwin-rebuild switch
+sudo darwin-rebuild switch

@@ -77,6 +77,7 @@ automatically-unhide-macos-hidden-apps = true
     alt-g = 'workspace G'
     alt-t = 'workspace T'
     alt-v = 'workspace V'
+    alt-w = 'workspace W'
 
     alt-shift-a = 'move-node-to-workspace A'
     alt-shift-s = 'move-node-to-workspace S'
@@ -86,6 +87,7 @@ automatically-unhide-macos-hidden-apps = true
     alt-shift-g = 'move-node-to-workspace G'
     alt-shift-t = 'move-node-to-workspace T'
     alt-shift-v = 'move-node-to-workspace V'
+    alt-shift-w = 'move-node-to-workspace W'
 
     alt-shift-semicolon = 'mode service'
     alt-r = 'mode resize'
@@ -114,8 +116,10 @@ automatically-unhide-macos-hidden-apps = true
     'A' = 'main'
     'S' = 'main'
     'F' = 'main'
+    'D' = 'main'
     'G' = 'secondary'
     'T' = 'secondary'
+    'W' = 'secondary'
 
 [[on-window-detected]]
     if.app-id = 'com.github.wez.wezterm'
